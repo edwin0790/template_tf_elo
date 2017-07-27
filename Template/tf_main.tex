@@ -1,14 +1,17 @@
-\documentclass[12pt,a4paper,openright]{report}
+\documentclass[12pt,a4paper,twosides,openright]{report}
 
 
 \usepackage{geometry}
 \geometry{
+	includehead,
+	includefoot,
 	a4paper,
 	left = 20mm,
 	top = 25mm,
-	total ={170mm,257mm}
+	total ={170mm,257mm},
 }
 
+\usepackage{fancyhdr}
 \usepackage{datetime}
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
@@ -25,6 +28,12 @@
 \usepackage{booktabs}
 \usepackage[titletoc]{appendix}
 \usepackage{siunitx}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhead{} % resetea el encabezado
+\fancyhead[LE,LO]{\it{\chaptername}}
+
 
 \lstset{literate=
 	{á}{{\'a}}1	{é}{{\'e}}1	{í}{{\'i}}1	{ó}{{\'o}}1	{ú}{{\'u}}1	{α}{{$\alpha$}}1	{β}{{$\beta$}}1	{γ}{{$\gamma$}}1	{ñ}{{\~n}}1
@@ -36,10 +45,10 @@
 
 \begin{document}
 		\renewcommand{\tablename}{Tabla}
-		
+
 		\begin{titlepage}
 			\begin{center}
-				\begin{Large} 	
+				\begin{Large}
 					\textbf{UNIVERSIDAD NACIONAL DE SAN JUAN\\
 					\vspace*{0.05in}
 					FACULTAD DE INGENIERIA\\
@@ -67,9 +76,13 @@
 				\vspace{.1in}
 				\the\year
 			\end{center}
-			
+
 		\end{titlepage}
-		
+
+		\input{agradecimientos}
+				
 		\tableofcontents
+
+		\input{Capitulos/capitulo1}
 		
 \end{document}
