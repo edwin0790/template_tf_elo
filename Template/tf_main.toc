@@ -1,2 +1,0 @@
-\select@language {spanish}
-\contentsline {chapter}{\numberline {1}El t\IeC {\'\i }tulo del cap\IeC {\'\i }tulo es la clave de todo}{3}
