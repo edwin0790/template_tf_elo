@@ -32,8 +32,12 @@
 
 \pagestyle{fancy}
 \fancyhead{} % resetea el encabezado
-\fancyhead[LE,LO]{\chaptername}
+\fancyhead[LE,LO]{\fontsize{9pt}{1pt}\it \leftmark}
+\fancyfoot{}
+\fancyfoot[RE,RO]{\fontsize{12pt}{1pt}\thepage}
 
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
 
 \lstset{literate=
 	{á}{{\'a}}1	{é}{{\'e}}1	{í}{{\'i}}1	{ó}{{\'o}}1	{ú}{{\'u}}1	{α}{{$\alpha$}}1	{β}{{$\beta$}}1	{γ}{{$\gamma$}}1	{ñ}{{\~n}}1
@@ -68,7 +72,7 @@
 				\vspace*{0.5in}
 				\begin{large}
 					Asesores: \\
-					\textbf{Mg. Ing. Adrián Orellana \hspace*{3pt}
+					\textbf{Dr.~Adrián Orellana \hspace*{3pt}
 					Ing. Diego Santiago\\}
 				\end{large}
 				\vspace{\fill}
@@ -83,6 +87,6 @@
 
 		\tableofcontents
 
-		%\input{Capitulos/capitulo1}
+		\input{Capitulos/capitulo1}
 
 \end{document}
