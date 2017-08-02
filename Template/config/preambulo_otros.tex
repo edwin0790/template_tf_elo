@@ -1,0 +1,119 @@
+
+
+% The standard graphics inclusion package
+\usepackage{graphicx}
+% Set up how figure and table captions are displayed
+%\usepackage{caption}
+%\captionsetup{%
+%  font=footnotesize,% set font size to footnotesize
+%  labelfont=bf % bold label (e.g., Figure 3.2) font
+%}
+\graphicspath{{./imgs/}}
+
+
+\addtokomafont{caption}{\small}
+\addtokomafont{captionlabel}{\bfseries}
+
+
+\usepackage{xcolor}
+\definecolor{colortitulos}{RGB}{0,20,75}
+\addtokomafont{sectioning}{\color{colortitulos}}
+
+%csquotes
+% uso: \enquote{text}
+% ¿Por qué strict?
+\usepackage[strict=true,autostyle=true]{csquotes}
+
+
+% Add todo notes in the margin of the document
+\usepackage[
+%  disable, %turn off todonotes
+  colorinlistoftodos, %enable a coloured square in the list of todos
+  textwidth=\marginparwidth, %set the width of the todonotes
+%  textsize=scriptsize, %size of the text in the todonotes
+  textsize=tiny,
+  obeyFinal, % 
+  spanish,
+  ]{todonotes}
+  
+
+% Make the standard latex tables look so much better
+% An extended implementation of the array and tabular environments which extends the options for column formats, and provides "programmable" format specifications.
+% The pack­age en­hances the qual­ity of ta­bles in LaTeX, pro­vid­ing ex­tra com­mands as well as be­hind-the-scenes op­ti­mi­sa­tion. Guide­lines are given as to what con­sti­tutes a good ta­ble in this con­text. 
+\usepackage{array,booktabs}
+
+
+\usepackage[allowlitunits]{siunitx}
+%\selectlanguage{spanish} % También está como opción global de clase de documento..
+\sisetup{group-digits = true}
+\sisetup{group-minimum-digits = 5} % hasta 4 no separa de a 3.
+\sisetup{group-separator = {\,}} % Un espacio pequeño
+\sisetup{output-decimal-marker = {,}} % La coma para separar enteros de decimales
+\DeclareSIUnit\pixel{px}
+
+
+
+
+
+
+
+\usepackage{microtype}
+
+\usepackage{bm} %bold symbols in math mode
+
+\usepackage{multirow}
+
+\usepackage{tabulary}
+%\usepackage{tabularx}
+
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
+\KOMAoptions{toc=bibliography}
+
+\usepackage{subcaption}
+
+ \interfootnotelinepenalty=10000 %% Completely prevent breaking of footnotes
+ 
+ 
+   \usepackage{url} % Ver si es prescindible; tal vez con hyperref basta-
+ 
+ \usepackage[backend=biber,style=numeric,sorting=none,backref=true,hyperref=true]{biblatex}
+\bibliography{tfinal.bib} %PUEDE HABER MÁS DE UNO?
+ \renewcommand{\finentrypunct}{} % para que no ponga un punto al final de cada entrada de la bibliografía. Tal vez no importa si hay hipervínculos a las urls.
+ \DefineBibliographyStrings{spanish}{%
+   backrefpage = {Citado en página},% originally "cited on page" vid.
+   backrefpages = {Citado en páginas},% originally "cited on pages"
+ }
+  
+  
+
+%  
+%\usepackage[hidelinks]{hyperref}
+%\hypersetup{%
+%	pdfpagelabels=true,%
+%	plainpages=false,%
+%	pdfauthor={Pablo Daniel AGUADO},%
+%	pdftitle={Una estrategia para la clasificación óptica de almendras},%
+%	pdfsubject={Trabajo Final, UNSJ},%
+%	bookmarksnumbered=true,%
+%	colorlinks=false,%
+%	citecolor=black,%
+%	filecolor=black,%
+%	linkcolor=black,% you should probably change this to black before printing
+%	urlcolor=black,%
+%	pdfstartview=FitH%
+%}
+  
+\usepackage[hidelinks]{hyperref}
+\hypersetup{%
+	pdfpagelabels=true,%
+	plainpages=false,%
+	pdfauthor={Pablo Daniel AGUADO},%
+	pdftitle={Una estrategia para la clasificación óptica de almendras},%
+	pdfsubject={Trabajo Final, UNSJ},%
+	bookmarksnumbered=true,%
+	pdfstartview=FitH%
+}%falta índice en marcadores.
+ 
+ % Para otra vez: Usar \autoref{label} de hyperref, en lugar de \ref{}

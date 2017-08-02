@@ -1,0 +1,117 @@
+% Clase del documento. Koma-Script Report de base.
+\documentclass[draft,spanish,twoside=no]{scrreprt}
+%\documentclass[final,spanish,twoside=no]{scrreprt}
+\KOMAoptions{numbers=noendperiod} %NO ESTA FUNCIONANDO
+%\KOMAoptions{headinclude=true}
+%\KOMAoptions{footinclude=true}
+%\KOMAoptions{DIV=15}
+
+
+
+% IDIOMA
+% Polyglossia - An alternative to babel for XeLaTeX and LuaLaTeX
+% https://ctan.org/pkg/polyglossia
+% Este paquete es para mejor soporte de idiomas.
+%\usepackage[]{polyglossia}
+%\setdefaultlanguage[]{spanish}
+%\setotherlanguage[variant=american]{english}
+% Para escribir en inglés, usar el comando \textenglish{texto}
+% o el entorno english: \begin{english}[opciones]{}\end{english}
+
+\usepackage[utf8]{inputenc}
+% Make latex understand and use the typographic
+% rules of the language used in the document.
+\usepackage[main=spanish, english]{babel}
+\babeltags{en = english} % Y entonces \texten{texto} servirá para inglés. igual usaremos macro \ingles{texto}.
+%Para cosas largas: \begin{en} y \end{en}
+
+%\addto\captionsspanish{
+%	\def\tablename{Tabla}
+%	\def\listtablename{\'Indice de tablas}
+%}
+
+
+% Para usar 'tablas' en lugar de 'cuadros'.
+% Alternativa si usamos Koma-Script:
+\renewcaptionname{spanish}{\listtablename}{Índice de tablas}
+\renewcaptionname{spanish}{\tablename}{Tabla}
+% Alternativa propuesta por Polyglossia:
+%\usepackage{etoolbox}
+%\gappto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+%\gappto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+
+
+
+%Tamaño de papel: A4 
+
+%Márgenes: Superior = Inferior = 2,5cm; Izquierdo = 2cm; Derecho = 2cm 
+\usepackage[left=2cm,top=2.5cm,right=2cm,bottom=2.5cm,bindingoffset=0cm,footskip=1.5cm]{geometry}
+
+%Impresión en doble faz.
+% Está arriba con twoside=no
+
+%Letra tamaño 12. Tipo Arial o Times New Roman. 
+%\usepackage{helvet}
+%\usepackage[scaled]{helvet} 
+%Helvetica is actually somewhat larger than other typefaces of the same nominal size.  As a result, mixing, e.g., Times and Helvetica within running text may look bad. This  can  be  fixed  by  loading  the  package  with  the  option [scaled=〈scale〉], for instance: \usepackage[scaled=.92]{helvet}.  As a result, the font family phv (Helvetica) will be scaled down to 92% of its ‘natural’ size, which is suitable for use with Adobe Times.  Specifying [scaled] alone is equivalent to [scaled=0.95].
+
+\usepackage{newtxtext, newtxmath} % JUSTIFICAR
+\usepackage[zerostyle=d,scaled=.95]{newtxtt}
+%\usepackage[scaled=.8]{beramono}
+%\renewcommand{\familydefault}{\sfdefault}
+\KOMAoptions{fontsize=12pt}
+
+%Espaciado de renglones: 1 (Espaciado simple). 
+%\usepackage[singlespacing]{setspace} 
+% KOMA lo tiene por defecto
+
+
+%Espaciado de párrafos: un renglón libre.Cada punto aparte genera un párrafo. //Entonces no habrá sangrías.
+\KOMAoptions{parskip=full}
+
+%Ecuaciones  centradas.  Deben  aparecer  después  de  ser  citadas  en  el  texto. Numeración entre paréntesis justificada a la derecha. 
+
+%Todas  las  figuras  deben  estar  centradas,  tener  un  Nº  de  figura  y  leyenda.  Deben aparecer después de ser citadas en el texto. 
+
+%Encabezado de página: en todas las páginas exceptuando los inicios de capítulo. El encabezado debe incluir el número y título de capítulo en cursiva tamaño 9 y estar justificado a la izquierda.
+\usepackage[automark,headsepline,draft=false]{scrlayer-scrpage}
+\clearpairofpagestyles
+\lohead{\headmark}
+\setkomafont{pageheadfoot}{\itshape\footnotesize} % scriptsize es 8 si base es 12. Else: footnotesize, que es 10.
+\pagestyle{scrheadings}
+
+%Numeración  de  páginas  en  el  pié  de  página,  justificada  a  la  derecha,  número  no cursivo, tamaño 12. 
+\ofoot[\pagemark]{\pagemark} % opcion incluye las planas
+%\ofoot[]{\pagemark}
+\setkomafont{pagenumber}{\upshape\normalsize} %12
+
+%Tamaño de títulos:  
+%//Quedan muy chicos. Deberíamos usar los sugeridos por defecto.
+%De capítulo    16 en negrita 
+\setkomafont{chapter}{\bfseries\Large} % 17,28pt
+
+%De secciones  14 en negrita 
+\setkomafont{section}{\bfseries\large} % 14,4pt
+
+%Secundarios   14 en negrita 
+\setkomafont{subsection}{\bfseries\large} % 14,4pt
+
+
+%No referenciados  12 en negrita
+%\setkomafont{subsubsection}{\itshape\bfseries\normalsize} % 12. Italics para más contraste con el texto común.
+\setkomafont{subsubsection}{\bfseries\normalsize} % 12. Les puse color, así que no hace falta que estén en cursiva.
+
+\setkomafont{minisec}{\itshape\bfseries\normalsize}
+
+%Máxima cantidad de niveles de títulos referenciados: 3 
+%0. Capítulo / Título
+%1. Sección
+%2. Subsección
+%3. Subsubsección
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{\subsectionnumdepth}
+
+%Después de la tapa celeste con ventana provista por la secretaría del Departamento de  Electrónica  y  Automática,  sigue  una  hoja  impresa  provista  por  la Comisión  de Trabajos Finales donde, en el espacio correspondiente a la ventana debe escribirse el título de trabajo final, el nombre de los autores y el año. 
+ 
+%A continuación sigue una hoja donde se escribe: Universidad Nacional de San Juan,Facultad  de  Ingeniería,  Departamento  de  Electrónica  y  Automática,  el  título  del trabajo final, el nombre de los autores, el nombre de los asesores y el año. Luego sigue una hoja con los agradecimientos. En otra hoja se inicia la escritura del índice. Finalmente sigue el resto del trabajo. 
+

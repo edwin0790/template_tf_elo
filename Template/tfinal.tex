@@ -1,0 +1,178 @@
+%  PLANTILLA TRABAJO FINAL ELO
+%
+%  Esta es una plantilla de LaTeX para el trabajo final de graduación para la carrera de 
+%  Ingeniería Electrónica de la Universidad Nacional de San Juan. 
+%  NO ES OFICIAL. Está basada en las normas propuestas (y exigidas) por la Comisión de 
+%  Trabajo Final de carrera.
+%
+%  COLABORADORES
+%  2017 
+%    Edwin Barragán	- ELO 23714
+%    Pablo Aguado	- ELO 23724
+%
+%  ---------------------------------------------------------------------------------------
+%
+%  Intentamos que toda decisión de diseño esté justificada y que toda configuración esté
+%  comentada. Además incluimos comentarios útiles para quienes se están iniciando en LaTeX.
+%
+%  Usamos Koma-Script como clase base. La clase de este documento es Koma-Script Report.
+%  A continuación, algunas recomendaciones.
+%  
+%  FUENTES DE INFORMACIÓN
+%    LATEX
+%  1. Manual de LaTeX en Wikibooks
+%      Español	https://es.wikibooks.org/wiki/Manual_de_LaTeX (está menos completo que el
+%      															que está inglés, podés ayudar
+%      															a la traducción)
+%      Inglés	https://en.wikibooks.org/wiki/LaTeX
+%  2. TEX en StackExchange	https://tex.stackexchange.com/
+
+
+%  ---------------------------------------------------------------------------------------
+%  CONFIGURACIÓN
+% Incluimos archivos de configuración.
+% \input{archivo} sirve para incluir textualmente un archivo (como un #include en C)
+
+% Lo estrictamente determinado por las Normas Propuestas
+\input{config/preambulo_UNSJ.tex}
+% Otros paquetes útiles	
+\input{config/preambulo_otros.tex}
+
+% Separación en sílabas arbitraria
+\input{config/silabas.tex}%
+
+% Macros
+\input{config/macros.tex}
+
+%  Configuración de página de título. No está implementado todavía.
+%\title{Trabajo final muy interesante}
+%\author{Nombre Nombre APELLIDO}
+
+
+
+%  ---------------------------------------------------------------------------------------
+%  DOCUMENTO
+\begin{document}
+
+
+%    PRELIMINARES / FRONT MATTER (tapa, título, resumen, agradecimientos, índices, etc)
+
+% Usamos números romanos en los preliminares. Cada vez que lo cambiamos, empieza desde el
+% inicio. Usamos el comando \pagenumbering{numstyle}
+\pagenumbering{roman}
+
+
+%      TAPA
+% No está implementada. Usar 'Tapa con logo Trab.Final.doc'
+
+
+%      PÁGINA DE TÍTULO
+% Comando para crear la página de título automáticamente, según la clase de documento y
+% plantilla que se usen. No lo usamos todavía; en su lugar, incluimos una página que 
+% se debe editar manualmente.
+%\maketitle
+
+
+% Página de título que se debe editar manualmente. 
+\input{secciones/pagtitulo.tex}
+
+
+%      COSAS PENDIENTES
+% Una lista de cosas para hacer. Depende del paquete 'todonotes'. Se dejará de imprimir
+% si se usa la opcion 'final' en la definición de clase del documento:
+%   \documentclass[final,spanish,twoside=no]{scrreprt}
+% Ver en 'preambulo_UNSJ.tex'
+\listoftodos	% Comando para incluir la lista de cosas para hacer.
+
+
+%      RESUMEN / ABSTRACT
+\input{secciones/resumen.tex}
+
+
+%      AGRADECIMIENTOS
+\input{secciones/agradecimientos.tex}
+
+
+% Los tipos de página se pueden cambiar con \pagestyle{option} y con
+% \thispagestyle{option} para una sola página.
+% Los tipos de página para esta plantilla con con Koma-Script son:
+%   empty				vacía
+%	plain.scrheadings	sólo números de página
+%   scrheadings			números de página y cabecera
+%
+% Por defecto, el cuerpo usa plain.scrheadings, por lo que tenemos que decir que 
+% queremos tener cabeceras también, incluso en los índices.
+\pagestyle{scrheadings} 
+
+
+%      ÍNDICES
+% Índice normal / tabla de contenidos
+\tableofcontents
+
+
+% Índice de tablas (innecesario para nuestro trabajo final)
+%\listoftables
+
+% Índice de figuras (innecesario para nuestro trabajo final)
+%\listoffiguress
+
+
+%      PÁGINA DE DEDICATORIAS O SIMILAR (opcional)
+\input{secciones/pre.tex}
+
+% Con el comando \clearpage aseguramos de terminar la página e imprimir todos
+% los elementos flotantes (floats) que no se habían impreso aún.
+\clearpage 
+
+
+
+%    CUERPO PRINCIPAL
+% Acá incluímos todos los capítulos, menos los Anexos, si los hubiese.
+
+% Usamos números arábigos en el cuerpo principal.
+\pagenumbering{arabic}
+
+%      CAPÍTULOS
+% Capítulos de ejemplo. No hay ninguna estructura establecida.
+\input{secciones/capitulo1.tex}
+%\input{secciones/conclusiones.tex}
+
+
+
+%    BIBLIOGRAFÍA / REFERENCIAS
+% Las referencias están en un archivo '.bib' con formato BibLaTeX.
+% Declaramos los archivos en el preámbulo (fuera del entorno 'document'):
+% ver en 'preambulo_otros.tex'
+
+% Normalmente, los comandos de imprimir bibliografía sólo incluiran aquellas referencias
+% que fueron citadas en el texto. Si queremos incluir todas, aunque no estén citadas, 
+% usamos el comando \nocite{*}.
+%Incluimos en la bibliografía todas (*) las referencias no citadas en el texto.
+%\nocite{*} 
+
+% REVISAR QUE SE IMPRIMAN EN EL ÍNDICE
+% Este comando imprime toda la bibliografía. Ver más en la documentación de BibLaTeX.
+%\printbibliography
+%\printbibliography[title={Referencias}]
+
+% Otra opción es ordenarlas arbitrariamente. En este caso, decidí usar tres categorías:
+% referencias generales, programas y créditos de imágenes.
+% Para ello, cada elemento del archivo '.bib' debe tener una clave 'keyword'.
+\printbibliography[keyword={referencias},title={Referencias}]
+\printbibliography[keyword={software},title={Programas}]
+\printbibliography[keyword={imagenes},title={Créditos de imágenes}]
+
+
+
+%      APÉNDICES / ANEXOS
+% Usamos el comando \appendix, que declara que los capítulos siguientse son apéndices
+% y por tanto los enumera de forma distinta.
+\appendix
+
+% Incluimos los archivos de anexos
+\input{secciones/Anexo1.tex}
+\input{secciones/Anexo2.tex}
+
+
+
+\end{document}

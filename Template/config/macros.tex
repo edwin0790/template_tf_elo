@@ -1,0 +1,85 @@
+% Macros de estilo
+% Definimos nuevos comandos para facilitar la uniformidad de estilos.
+% Ayudará, por supuesto, crear atajos de teclado que los introduzcan, o
+% tener un editor que ayude con el autocompletado.
+
+% Palabras en inglés: \ingles
+% Definimos tanto el estilo general como el idioma. Lo del idioma es necesario
+% porque el paquete de idioma define muchas cuestiones. Ver la documentación
+% del paquete Polyglossia.
+% Usamos cursivas (_italics_) para los extranjerismos.
+\newcommand{\ingles}[1]{\textit{\texten{#1}}}
+
+
+% Nombres propios: \nombre
+% Ya sean personas o instituciones. Nombres no genéricos. Títulos de libros o documentos no.
+\newcommand{\nombre}[1]{\textsf{#1}}
+
+\newcommand{\programa}[1]{\texttt{#1}}
+
+\def\td{\todo[inline]}
+
+
+
+%\begin{figure}[hbtp]
+%\centering
+%\includegraphics[width=0.4\linewidth]{dummy}
+%\caption[]{\td{Cita}}
+%\label{fig:}
+%\end{figure}
+
+
+\def\imagenchica{5cm}
+\def\imagenmedia{10cm}
+\def\imagengrande{15cm}
+
+
+\newcommand{\criterio}[3]{%
+	\noindent
+	\begin{minipage}{0.59\textwidth}
+	\begin{description}
+	\item[#1] #3
+	\end{description}
+	\end{minipage}\hfill
+	\begin{minipage}{0.4\textwidth}
+	#2
+	\end{minipage}
+	\medskip
+	}
+	
+\newcommand{\criterioo}[3]{%
+	\noindent
+	\begin{minipage}{0.59\textwidth}
+		\noindent
+		\begin{description}
+			\item[#1] #3
+		\end{description}
+	\end{minipage}\hfill
+	\begin{minipage}{0.4\textwidth}
+		\noindent
+		\centering
+		\includegraphics[]{imgs/#2}
+	\end{minipage}
+	\bigskip
+}
+	
+\newcommand{\criteriooo}[4]{%
+	\noindent
+	\begin{minipage}{0.59\textwidth}
+		\noindent
+		\begin{description}
+			\item[#1] #4
+		\end{description}
+	\end{minipage}\hfill
+	\begin{minipage}{0.4\textwidth}
+		\noindent
+		\centering
+		\includegraphics[]{imgs/#2}
+		\includegraphics[]{imgs/#3}
+	\end{minipage}
+	\bigskip
+}
+
+\def\escaladiagramas{0.25}
+
+%\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{SegmentadorBorde1.png}
