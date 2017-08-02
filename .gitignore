@@ -1,5 +1,9 @@
 ## Original en https://github.com/github/gitignore/blob/master/TeX.gitignore
 
+# Añadidos
+tfinal.pdf
+tf_main.pdf
+
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
