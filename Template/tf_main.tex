@@ -1,20 +1,7 @@
 \documentclass[12pt,a4paper,twosides,openright]{report}
 
-%Paquete para ajustar el tamaño de pagina, margenes, etc
-\usepackage{geometry}
-\geometry{
-	includehead,
-	includefoot,
-	a4paper,
-	left = 20mm,
-	top = 25mm,
-	total ={170mm,257mm},
-}
-%El siguiente paquete provee las funciones necesarias para ajustar el encabezado
-%y el pie de página
-\usepackage{fancyhdr}
+\input{./config/pagina}
 
-\usepackage{datetime}
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
@@ -32,10 +19,6 @@
 \usepackage{siunitx}
 \usepackage{hyperref}
 
-\pagestyle{fancy}
-\fancyhf{} % resetea el encabezado
-\fancyhead[LE,LO]{\fontsize{9pt}{1pt}\it \leftmark}
-\fancyfoot[RE,RO]{\fontsize{12pt}{1pt}\thepage}
 
 \renewcommand{\chaptermark}[1]{%
 \markboth{\thechapter.\ #1}{}}
@@ -51,43 +34,12 @@
 \begin{document}
 		\renewcommand{\tablename}{Tabla}
 
-		\begin{titlepage}
-			\begin{center}
-				\begin{Large}
-					\textbf{UNIVERSIDAD NACIONAL DE SAN JUAN\\
-					\vspace*{0.05in}
-					FACULTAD DE INGENIERIA\\
-					\vspace*{0.05in}
-					Departamento de Electrónica y Automática\\
-					\vspace*{\fill}}
-				\end{Large}
-				\begin{Large}
-					\textbf{COMPLEMENTOS DE INFORMÁTICA\\TEMAS ESPECÍFICOS DE CONTROL I} \\
-					Trabajo Integrador de Materia\\
-				\end{Large}
-				\vspace*{\fill}
-				\begin{large}
-					\textbf{Edwin Barragán}\\
-					Autor\\
-				\end{large}
-				\vspace*{0.5in}
-				\begin{large}
-					Asesores: \\
-					\textbf{Dr.~Adrián Orellana \hspace*{3pt}
-					Ing.~Diego Santiago\\}
-				\end{large}
-				\vspace{\fill}
-				\rule{80mm}{0.1mm}\\
-				\vspace{.1in}
-				\the\year
-			\end{center}
+		\input{./secciones/intro/caratula}
 
-		\end{titlepage}
-
-		\input{agradecimientos}
+		\input{./secciones/intro/agradecimientos}
 
 		\tableofcontents
 
-		\input{Capitulos/capitulo1}
+		\input{./secciones/cuerpo/capitulo1}
 
 \end{document}
