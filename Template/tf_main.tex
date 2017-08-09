@@ -1,15 +1,7 @@
-\documentclass[12pt,a4paper,openright]{report}
+\documentclass[12pt,a4paper,twosides,openright]{report}
 
+\input{./config/pagina}
 
-\usepackage{geometry}
-\geometry{
-	a4paper,
-	left = 20mm,
-	top = 25mm,
-	total ={170mm,257mm}
-}
-
-\usepackage{datetime}
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
@@ -25,6 +17,11 @@
 \usepackage{booktabs}
 \usepackage[titletoc]{appendix}
 \usepackage{siunitx}
+\usepackage{hyperref}
+
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
 
 \lstset{literate=
 	{á}{{\'a}}1	{é}{{\'e}}1	{í}{{\'i}}1	{ó}{{\'o}}1	{ú}{{\'u}}1	{α}{{$\alpha$}}1	{β}{{$\beta$}}1	{γ}{{$\gamma$}}1	{ñ}{{\~n}}1
@@ -36,40 +33,13 @@
 
 \begin{document}
 		\renewcommand{\tablename}{Tabla}
-		
-		\begin{titlepage}
-			\begin{center}
-				\begin{Large} 	
-					\textbf{UNIVERSIDAD NACIONAL DE SAN JUAN\\
-					\vspace*{0.05in}
-					FACULTAD DE INGENIERIA\\
-					\vspace*{0.05in}
-					Departamento de Electrónica y Automática\\
-					\vspace*{\fill}}
-				\end{Large}
-				\begin{Large}
-					\textbf{COMPLEMENTOS DE INFORMÁTICA\\TEMAS ESPECÍFICOS DE CONTROL I} \\
-					Trabajo Integrador de Materia\\
-				\end{Large}
-				\vspace*{\fill}
-				\begin{large}
-					\textbf{Edwin Barragán}\\
-					Autor\\
-				\end{large}
-				\vspace*{0.5in}
-				\begin{large}
-					Asesores: \\
-					\textbf{Mg. Ing. Adrián Orellana \hspace*{3pt}
-					Ing. Diego Santiago\\}
-				\end{large}
-				\vspace{\fill}
-				\rule{80mm}{0.1mm}\\
-				\vspace{.1in}
-				\the\year
-			\end{center}
-			
-		\end{titlepage}
-		
+
+		\input{./secciones/intro/caratula}
+
+		\input{./secciones/intro/agradecimientos}
+
 		\tableofcontents
-		
+
+		\input{./secciones/cuerpo/capitulo1}
+
 \end{document}

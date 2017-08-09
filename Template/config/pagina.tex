@@ -1,0 +1,24 @@
+%Paquete para ajustar el tamaño de pagina, margenes, etc
+\usepackage{geometry}
+%geometría definida respecto a las sugerencias
+  \geometry{
+  	includehead,
+  	includefoot,
+  	a4paper,
+  	left = 20mm,
+  	top = 25mm,
+  	total ={170mm,257mm},
+  }
+%El siguiente paquete provee las funciones necesarias para ajustar el encabezado
+%y el pie de página
+\usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{} % resetea el encabezado
+  \fancyhead[LE,LO]{\fontsize{9pt}{1pt}\it \leftmark}
+  \fancyfoot[RE,RO]{\fontsize{12pt}{1pt}\thepage}
+
+  \fancypagestyle{plain}{
+  	\fancyfoot[RE,RO]{\fontsize{12pt}{1pt}\thepage}}
+
+%usado para colocar la fecha en la carátula
+\usepackage{datetime}
