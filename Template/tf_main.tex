@@ -18,7 +18,9 @@
 \usepackage[titletoc]{appendix}
 \usepackage{siunitx}
 \usepackage{hyperref}
+\usepackage{titling}
 
+\newcommand*{\asesores}[2]{\gdef\@asesor{#1}{#2}}
 
 \renewcommand{\chaptermark}[1]{%
 \markboth{\thechapter.\ #1}{}}
@@ -30,6 +32,10 @@
 \renewcommand{\appendixpagename}{Apéndice}
 \renewcommand{\labelitemi}{$o$}
 \renewcommand{\labelitemii}{$-$}
+
+\title{Acá va el titulo}
+\author{App1, NN1 \and App1, NN2}
+
 
 \begin{document}
 		\renewcommand{\tablename}{Tabla}
